@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
 
   resources :search_suggestions
-  get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox
-  get "mailbox/sent" => "mailbox#sent", as: :mailbox_sent
-  get "mailbox/trash" => "mailbox#trash", as: :mailbox_trash
 
   get 'notifications/:id/link_through', to: 'notifications#link_through',
                                         as: :link_through
@@ -15,14 +12,6 @@ Rails.application.routes.draw do
     resources :replies
   end 
 
-  resources :chats do
-    member do
-      post :reply
-      post :trash
-      post :untrash
-    end
-  end
-
   resources :posts do 
     resources :comments 
     collection do # new path for search input 
@@ -31,19 +20,14 @@ Rails.application.routes.draw do
   end
   devise_for :users
   resources :users do
-    post 'search',  :on => :collection
     member do
       get :friends
       get :followers
-      get :deactivate
       get :mentionable
+      get :deactivate
     end
   end
 
-  resources :chats do
-    resources :messages
-  end
-  
   authenticated :user do
     root to: 'home#index', as: 'home'
   end
@@ -57,12 +41,12 @@ Rails.application.routes.draw do
   match :unlike, to: 'likes#destroy', as: :unlike, via: :post
   match :find_friends, to: 'home#find_friends', as: :find_friends, via: :get
   match :about, to: 'home#about', as: :about, via: :get
+  match :search, to: 'home#search', as: :search, via: :get
   match :privacy, to: 'home#privacy', as: :privacy, via: :get
   match :Terms, to: 'home#terms', as: :terms, via: :get
 
-  resources :talks do
-    resources :mails
+  resources :tlks do
+    resources :mls
   end
 
- 
 end
