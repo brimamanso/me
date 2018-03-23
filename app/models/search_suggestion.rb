@@ -1,2 +1,0 @@
-class SearchSuggestion < ApplicationRecord
-end
