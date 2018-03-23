@@ -45,7 +45,7 @@ gem 'auto_html', '~> 2.0'
 gem 'sanitize'
 gem 'active_model_serializers', '~> 0.10.7'
 gem 'simple_form', '~> 3.5'
-gem 'paperclip', '~> 5.2', '>= 5.2.1'
+#gem 'paperclip', '~> 5.2', '>= 5.2.1'
 gem 'acts-as-taggable-on', '~> 5.0'
 
 
