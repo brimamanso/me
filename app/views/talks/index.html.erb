@@ -1,0 +1,20 @@
+<div class="ui segment">
+  <h3>Mailbox</h3>
+
+  <div class="ui list">
+    <div class="item">
+      <% @talks.each do |talk| %>
+        <% if talk.sender_id == current_user.id || talk.recipient_id == current_user.id %>
+          <% if talk.sender_id == current_user.id %>
+            <% recipient = User.find(talk.recipient_id) %>
+          <% else %>
+            <% recipient = User.find(talk.sender_id) %>
+          <% end %>
+          <br>
+          <%= link_to recipient.name, talk_mails_path(talk)%>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

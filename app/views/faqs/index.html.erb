@@ -1,0 +1,32 @@
+  <p id="notice"><%= notice %></p>
+
+
+  <center><h3>Frequently Asked Questions</h3></center>
+  <h4>
+        <%= link_to 'Have A Question?? Ask Here', new_faq_path %>
+  </h4>
+
+ 
+      
+        <% @faqs.each do |faq| %>
+          <div class="col-md=4 well">
+            <h4 style="color:black;;">
+            
+              <%= faq.description %> |
+              <%= link_to 'Replies', faq %> 
+          
+            
+            </h4>
+            <h5><%= time_ago_in_words(faq.created_at) %> ago </h5>
+            <%= render 'shared/reply', resource: @faq %>
+            
+          </div>
+          
+            
+        <% end %>
+        
+      
+
+
+                          
+

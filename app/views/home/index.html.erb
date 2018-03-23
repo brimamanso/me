@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-lg-4">
+    <%= render 'shared/user_info' %>
+  </div>
+  <div id="newsfeed" class="col-lg-6">
+    <%= render 'posts/form' %>
+    <div class=" post-panel">
+        <div id="activities">
+          <% if @activities.empty? %>
+            <div class="well">
+              <%= render('shared/no_resource', resources: 'Activities') %>
+            </div>
+          <% else %>
+            <%= render_activities(@activities, layout: '/shared/activity') %>
+          <% end %>
+        </div>
+    </div>
+    <div class="panel panel-default pic-panel">
+        <div class="panel-body row">
+          <div class="col-lg-6">
+            <a href="#top"><p class="opacity: .7;">Back to top <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></p></a></center>
+          </div>
+        </div>
+    </div>
+    <%= render 'shared/paginate', resources: @activities %>
+  </div>
+</div>

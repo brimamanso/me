@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div class="col-lg-12 col-lg-offset-0 well">     
+      <%= @faq.description %>
+    </div>
+  </div>
+</div>
+
+<br>
+<h5> <%= @faq.replies.count %> Replies:) <h5> 
+  <%= render @faq.replies %>
+  <h4>Add A Reply</h4>
+  <%= render 'replies/form' %>
+<br>
+
+  <%= link_to 'Back', faqs_path %>

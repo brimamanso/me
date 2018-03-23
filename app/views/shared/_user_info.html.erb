@@ -1,0 +1,456 @@
+<div id="user-info" class="well">
+  <div class="text-center">
+    <%= render 'shared/avatar', user: @user %><br>
+    <h5><%= link_to @user.name, @user %></h5>
+  </div>
+  <h5>
+    <%= fa_icon 'shield' %>
+    <%= pluralize(@user.posts_count, 'post') %>
+  </h5>
+  <% if @user.date_of_birth.present? %>
+    <h5>
+      <%= fa_icon @user.sex %>
+      <%= "#{pluralize(age(@user.date_of_birth), 'year')} old" %>
+    </h5>
+  <% end %>
+  <% if @user.location.present? %>
+    <h5>
+      <%= fa_icon 'map-marker' %>
+      <%= @user.location %>
+    </h5>
+  <% end %>
+  <% if @user.bio.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Bio:)
+      </p>
+      <%= @user.bio %>
+    </h5>
+  <% end %>
+  <% if @user.Hobies.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Hobies:)
+      </p>
+      <%= @user.Hobies %>
+    </h5>
+  <% end %>
+  <% if @user.Relationship_status.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Relationship status:)
+      </p>
+      <%= @user.Relationship_status %>
+    </h5>
+  <% end %>
+  <% if @user.School_Name.present? %>
+    <h5>
+      <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+      <%= @user.School_Name %>
+    </h5>
+  <% end %>
+  <% if @user.school_type.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     school type:)
+      </p>
+      <%= @user.school_type %>
+    </h5>
+  <% end %>
+  <% if @user.Interests.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Interests:)
+      </p>
+      <%= @user.Interests %>
+    </h5>
+  <% end %>
+  <% if @user.Likes.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Likes:)
+      </p>
+      <%= @user.Likes %>
+    </h5>
+  <% end %>
+  <% if @user.Website.present? %>
+      <h5><i class="fa fa-link"></i> <%= link_to @user.Website, @user.Website %></h5>
+  <% end %>
+  <% if @user.Goals.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Goals:)
+      </p>
+      <%= @user.Goals %>
+    </h5>
+  <% end %>
+  <% if @user.Skills.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Skills:)
+      </p>
+      <%= @user.Skills %>
+    </h5>
+  <% end %>
+  <% if @user.Nationality.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Nationality:)
+      </p>
+      <%= @user.Nationality %>
+    </h5>
+  <% end %>
+  <% if @user.Majors.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Majors:)
+      </p>
+      <%= @user.Majors %>
+    </h5>
+  <% end %>
+  <% if @user.Minors.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Minors:)
+      </p>
+      <%= @user.Minors %>
+    </h5>
+  <% end %>
+  <% if @user.Accomplishments.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Accomplishments:)
+      </p>
+      <%= @user.Accomplishments %>
+    </h5>
+  <% end %>
+  <% if @user.Allergies.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Allergies:)
+      </p>
+      <%= @user.Allergies %>
+    </h5>
+  <% end %>
+  <% if @user.Profession.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Profession:)
+      </p>
+      <%= @user.Profession %>
+    </h5>
+  <% end %>
+  <% if @user.Experiences.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Experiences:)
+      </p>
+      <%= @user.Experiences %>
+    </h5>
+  <% end %>
+  <% if @user.Role_Model.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Role Model:)
+      </p>
+      <%= @user.Role_Model %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_Musicians.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Favourite Musicians:)
+      </p>
+      <%= @user.Favourite_Musicians %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_Sports.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Favourite Sports:)
+      </p>
+      <%= @user.Favourite_Sports %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_TVshows.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Favourite TVshows:)
+      </p>
+      <%= @user.Favourite_TVshows %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_Footballers.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Favourite Footballers:)
+      </p>
+      <%= @user.Favourite_Footballers %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_Subjects.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Favourite Subjects:)
+      </p>
+      <%= @user.Favourite_Subjects %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_Teachers.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Favourite Teachers:)
+      </p>
+      <%= @user.Favourite_Teachers %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_Professors.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                    Favourite Professors:)
+      </p>
+      <%= @user.Favourite_Professors %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_Roommate.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                    Favourite Roommate:)
+      </p>
+      <%= @user.Favourite_Roommate %>
+    </h5>
+  <% end %>
+  <% if @user.Best_Friends.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Best Friends:)
+      </p>
+      <%= @user.Best_Friends %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_Food.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Favourite Food:)
+      </p>
+      <%= @user.Favourite_Food %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_Basketball_Players.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Favourite Basketball Players:)
+      </p>
+      <%= @user.Favourite_Basketball_Players %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_Countries.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Favourite Countries:)
+      </p>
+      <%= @user.Favourite_Countries %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_Car.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Favourite Car:)
+      </p>
+      <%= @user.Favourite_Car %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_Songs.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Favourite Songs:)
+      </p>
+      <%= @user.Favourite_Songs %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_Youtubers.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Favourite Youtubers:)
+      </p>
+      <%= @user.Favourite_Youtubers %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_Schools.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Favourite Schools:)
+      </p>
+      <%= @user.Favourite_Schools %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_University.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Favourite University:)
+      </p>
+      <%= @user.Favourite_University %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_Animals.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Favourite Animals:)
+      </p>
+      <%= @user.Favourite_Animals %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_Seasons.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Favourite Seasons:)
+      </p>
+      <%= @user.Favourite_Seasons %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_Pet.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Favourite Pet:)
+      </p>
+      <%= @user.Favourite_Pet %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_Brand.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Favourite Brand:)
+      </p>
+      <%= @user.Favourite_Brand %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_Footwears.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Favourite Footwears:)
+      </p>
+      <%= @user.Favourite_Footwears %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_Movies.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Favourite Movies:)
+      </p>
+      <%= @user.Favourite_Movies %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_Books.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Favourite Books:)
+      </p>
+      <%= @user.Favourite_Books %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_Destinations.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Favourite Destinations:)
+      </p>
+      <%= @user.Favourite_Destinations %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_Time_of_sleep.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Favourite Time of sleep:)
+      </p>
+      <%= @user.Favourite_Time_of_sleep %>
+    </h5>
+  <% end %>
+  <% if @user.Favourite_Quote.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Favourite Quote:)
+      </p>
+      <%= @user.Favourite_Quote %>
+    </h5>
+  <% end %>
+  <% if @user.Business_Ventures.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Business Ventures:)
+      </p>
+      <%= @user.Business_Ventures %>
+    </h5>
+  <% end %>
+  <% if @user.strengths.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     strengths:)
+      </p>
+      <%= @user.strengths %>
+    </h5>
+  <% end %>
+  <% if @user.Core_Values.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                    Core Values:)
+      </p>
+      <%= @user.Core_Values %>
+    </h5>
+  <% end %>
+  <% if @user.why_are_you_on_earth.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Why Are You On Earth:)
+      </p>
+      <%= @user.why_are_you_on_earth %>
+    </h5>
+  <% end %>
+  <% if @user.passions.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     passions:)
+      </p>
+      <%= @user.passions %>
+    </h5>
+  <% end %>
+  <% if @user.Friends_with_benefits.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Friends with benefits:)
+      </p>
+      <%= @user.Friends_with_benefits %>
+    </h5>
+  <% end %>
+  <% if @user.believes.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                    believes:)
+      </p>
+      <%= @user.believes %>
+    </h5>
+  <% end %>
+  <% if @user.wish.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     wish:)
+      </p>
+      <%= @user.wish %>
+    </h5>
+  <% end %>
+  <% if @user.Leadership_Styles.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Leadership Styles:)
+      </p>
+      <%= @user.Leadership_Styles %>
+    </h5>
+  <% end %>
+  <% if @user.Native_Language.present? %>
+    <h5>
+      <p style="color: purple;font-weight: bold;">
+                     Native Language:)
+      </p>
+      <%= @user.Native_Language %>
+    </h5>
+  <% end %>
+  <h5><i class="fa fa-clock-o"></i> Joined <%= formatted_time(@user.created_at) %></h5>
+</div>

@@ -1,0 +1,9 @@
+.dropdown.notification-dropdown
+  %button.btn.btn-primary.dropdown-toggle{ type: 'button', id: 'dropdownMenu1', data: { toggle: 'dropdown' }, 'aria-haspopup': true, 'aria-expanded': true }
+    = current_user.notifications.count
+    Notifications
+  %ul.dropdown-menu{ 'aria-labelledby': 'dropdownMenu1' }
+    %li.dropdown-header.text-center Notifications
+    = render current_user.notifications.where(read: false)
+    %li.divider{ role: 'separator' }
+    %li.text-center= link_to 'View All', notifications_path

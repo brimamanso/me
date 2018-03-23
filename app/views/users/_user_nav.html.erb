@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div id="user-nav" class="well">
+      <div class="row">
+        <div class="col-lg-6 col-lg-offset-0">
+          <ul class="nav nav-pills">
+            <li class="<%= view_type=='following' ? 'active' : ''%>">
+              <%= link_to 'Following', friends_user_path(current_user) %>
+            </li>
+            <li class="<%= view_type=='followers' ? 'active' : ''%>">
+                <%= link_to "Followers", followers_user_path(@user)%>
+                
+            </li>
+           </ul>
+        </div>
+        <div class="col-lg-3 col-lg-offset-3">
+          <% if @user == current_user %>
+              <%= link_to "Edit Your Profile", edit_user_path(@user), class: 'btn btn-default' %>
+          <br>
+          <% else %>
+          <%= link_to 'Send A Message', talks_path(sender_id: current_user.id, recipient_id: @user.id), class: 'btn btn-primary', method: 'post'%>
+          <% end %>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+        <%= form_for([@faq, @faq.replies.build]) do |f| %>
+
+            <p><%= f.text_area :content ,  class: 'form-control input-mentionable', placeholder: "write your reply here"%></p>
+            <%= f.submit 'Reply', class: 'btn btn-primary' %>
+        <% end %>

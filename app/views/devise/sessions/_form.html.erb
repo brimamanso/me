@@ -1,0 +1,20 @@
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-group">
+        <%= f.email_field :email, class: 'form-control', autofocus: true, placeholder: 'Type your email' %>
+      </div>
+      <div class="form-group">
+        <%= f.password_field :password, class: 'form-control', autocomplete: 'off', placeholder: 'password' %>
+      </div>
+      <% if devise_mapping.rememberable? -%>
+        <div class="form-group">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me, style: "color: white" %> 
+        </div>
+        <div class="form-group">
+          <%= link_to "Forgot your password?", new_password_path(:user), style: "color: white; font-weight: bold;" %>
+        </div>
+      <% end -%>
+      <div class="actions">
+        <%= f.submit 'Log in', class: 'btn btn-primary' %>
+      </div>
+    <% end %>

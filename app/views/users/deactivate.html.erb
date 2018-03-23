@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3">
+    <div class="well">
+      <h4>Please note that deactivating your acoount will delete all informations about you and contents ou have posted</h4>
+      <hr>
+      <br>
+      <%= button_to 'Delete my account', registration_path(@user), data: { confirm: "Are you sure you want to deactivate your account?" }, method: :delete, class: 'btn btn-danger' %>
+    </div>
+  </div>
+</div>

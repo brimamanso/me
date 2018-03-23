@@ -1,0 +1,40 @@
+<%= render 'shared/cover', user: @user %>
+<%= render 'user_nav', view_type: 'profile' %>
+<br>
+<div id="user-<%= @user.id %>" class="row">
+
+  <div class="col-lg-6">
+    <div id="activities">
+      <% if @activities.empty? %>
+        <div class="well">
+          <%= render('shared/no_resource', resources: 'Activities') %>
+        </div>
+      <% else %>
+        <%= render_activities(@activities, layout: '/shared/activity') %>
+      <% end %>
+    </div>
+    <%= render 'shared/paginate', resources: @activities %>
+  </div>
+
+  <div class="col-lg-4">
+    <div class="well">
+      <% unless is_current_user?(@user) %>
+        <%= 'This Person Is Following You' if current_user.followed_by?(@user) %>
+        <%= render 'follows/form', user: @user %>
+      <% else %>
+        <%= link_to 'Delete Your Account', deactivate_user_path(@user), class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+    <%= render 'shared/user_info'%>
+  </div>
+
+
+<div class="col-lg-6">
+      <% unless is_current_user?(@user) %>
+        <%= 'This Person Is Following You' if current_user.followed_by?(@user) %>
+        <%= render 'follows/form', user: @user %>
+      <% end %>
+    <%= render 'shared/user_info'%>
+  </div>
+  
+</div>

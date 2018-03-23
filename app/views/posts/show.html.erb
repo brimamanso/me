@@ -1,0 +1,44 @@
+<div class="row">
+      <div class="col-xs-12">
+            <div class="col-lg-6 col-lg-offset-3 well">
+                  <div id="post-<%= @post.id %>" class="micropost">
+                        <div class="form-group">                              
+                              <%= link_to @post.user do %>
+                                          <%= render 'shared/avatar', user: @post.user %>
+                                          <% end %>                                          
+                                          <%= link_to @post.user.name, user_path(@post.user) %>
+                                          <%= render 'shared/created_at', activity: @post %>
+                                    <h5><%= @post.content %></h5>
+                                          <div class="image">
+                                                <%= image_tag @post.image_url, style: "width: 100%;border-radius: 2rem;" if @post.image? %>
+                                          </div>
+                                          <br>
+                              <%= render 'shared/actions', resource: @post %>
+                              <span class="like-count"><%= pluralize(@post.cached_votes_up, 'like') %></span>
+                              <%= @post.comments.count %> Comments
+                              <br>
+                              <% if @post.user == current_user %>
+                                                <%= link_to post_path(@post), method: :delete, remote: true do %>
+                                                      <i class="fa fa-trash"></i>
+                                                <% end %>
+
+                                                <%= link_to edit_post_path(@post) do %>
+                                                      <% fa_icon 'pencil' %>
+                                                <% end %>                                                
+                              <% end %>
+                              <%= render @post.comments %>
+                        </div>
+                  </div>
+            </div>
+      </div>
+</div>
+<div class="row">
+      <div class="col-xs-12">
+            <div class="col-lg-6 col-lg-offset-3 well"> 
+                  <%= render 'comments/form' %>
+            </div>
+      </div>
+</div>
+            
+
+

@@ -1,0 +1,7 @@
+<% if @post.destroy %>
+  $("#post-<%= @post_id %>").remove();
+  $('#posts-count').html("<%= current_user.reload.posts_count %>");
+  $('#post-error').html("<%=j render 'shared/error_message', error_message: 'Post deleted successfully' %>");
+<% else %>
+  $('#post-error').html("<%=j render 'shared/error_message', error_message: 'Post deletion failed. Try again later' %>");
+<% end %>

@@ -1,0 +1,10 @@
+<%= form_with(model: faq, local: true) do |form| %>
+  <div class="field">
+    <%= form.text_area :description,  class: 'form-control input-mentionable', id: :faq_description, placeholder: 'Have a question?' %>
+  </div>
+  <br>
+
+  <div class="actions">
+    <%= form.submit 'Create Question', class: 'btn btn-primary' %>
+  </div>
+<% end %>
