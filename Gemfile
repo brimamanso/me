@@ -18,7 +18,6 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
-gem 'mailboxer', '~> 0.15.1'
 gem 'jquery-atwho-rails'
 gem 'autoprefixer-rails'
 gem 'font-awesome-rails'
@@ -45,6 +44,7 @@ gem 'sanitize'
 gem 'active_model_serializers', '~> 0.10.7'
 gem 'simple_form', '~> 3.5'
 #gem 'paperclip', '~> 5.2', '>= 5.2.1'
+gem 'mail', '~> 2.7'
 gem 'acts-as-taggable-on', '~> 5.0'
 
 

@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
   acts_as_follower
   acts_as_followable
 
-  has_many :personal_messages, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
   mount_uploader :cover, AvatarUploader
@@ -21,8 +20,6 @@ class User < ActiveRecord::Base
   
 
   validates_presence_of :name
-  include PgSearch
-  pg_search_scope :search_by_full_name, against: [:name] 
 
   def self.search(params)
     users = User.where("name LIKE?", "%#{params[:search]}%") if params[:search].present?
@@ -33,21 +30,5 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders]
 
-  acts_as_messageable 
-
-    def mailboxer_name
-      self.name
-    end
-
-    def mailboxer_email(object)
-      self.email
-    end
-
-    private
-
-  # for demo purposes
-
-    def create_default_conversation
-      Conversation.create(sender_id: 1, recipient_id: self.id) unless self.id == 1
-    end
+ 
 end
